@@ -1,0 +1,7 @@
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix: ""
+      id-type: auto
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

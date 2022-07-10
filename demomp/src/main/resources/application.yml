@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: dev
   datasource:
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -12,5 +14,37 @@ mybatis-plus:
       id-type: auto
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+logging:
+  pattern:
+    console: "%d - %m %n"
+  file:
+    name: server.log
+  logback:
+    rollingpolicy:
+      max-file-size: 4kB
+      file-name-pattern: server.%d{yyyy-MM-dd}.%i.log
+
+---
+#
+spring:
+  profiles: dev
 server:
   port: 80
+
+
+---
+#
+spring:
+  profiles: pro
+server:
+  port: 81
+
+
+
+
+---
+#
+spring:
+  profiles: test
+server:
+  port: 82
